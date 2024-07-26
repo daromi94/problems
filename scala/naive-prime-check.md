@@ -1,0 +1,21 @@
+# Naive Prime Check
+
+## Solution
+
+```scala
+import scala.annotation.tailrec
+
+object Solution {
+  @tailrec
+  def isPrime(n: Int, div: Int = 2): Boolean = {
+    if (n / 2 == div) true
+    else if (n % div == 0) false
+    else isPrime(n, div + 1)
+  }
+
+  @main def main(args: String*): Unit = {
+    println(isPrime(79))
+    println(isPrime(50))
+  }
+}
+```
