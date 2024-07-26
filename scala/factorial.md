@@ -1,0 +1,29 @@
+# Factorial
+
+## Solution
+
+```scala
+import scala.annotation.tailrec
+
+object Solution {
+  def factorial(n: Long): Long = {
+    if (n == 0 || n == 1) 1
+    else n * factorial(n - 1)
+  }
+
+  def tailFactorial(n: Long): Long = {
+    @tailrec
+    def helper(x: Long, acc: Long): Long = {
+      if (x == 0 || x == 1) acc
+      else helper(x - 1, x * acc)
+    }
+
+    helper(n, 1)
+  }
+
+  @main def main(args: String*): Unit = {
+    println(factorial(7))
+    println(tailFactorial(7))
+  }
+}
+```
